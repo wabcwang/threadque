@@ -1,12 +1,12 @@
-¶àÏß³Ì¶ÓÁĞ
+`å¤šçº¿ç¨‹é˜Ÿåˆ—
 
-1¡¢threadque.h Ïß³Ìµ¥Ïò¶ÓÁĞ
-2¡¢threaddeque.h Ïß³ÌË«Ïò¶ÓÁĞ
-3¡¢test_que.cpp  µ¥Ïò¶ÓÁĞµÄ²âÊÔ
-4¡¢test_deque.cpp Ë«Ïò¶ÓÁĞµÄ²âÊÔ
+``1ã€threadque.h çº¿ç¨‹å•å‘é˜Ÿåˆ—
+``2ã€threaddeque.h çº¿ç¨‹åŒå‘é˜Ÿåˆ—
+``3ã€test_que.cpp  å•å‘é˜Ÿåˆ—çš„æµ‹è¯•
+``4ã€test_deque.cpp åŒå‘é˜Ÿåˆ—çš„æµ‹è¯•
 
-ÔËĞĞ²âÊÔ½Å±¾
-$ g++ -std=c++11  -Wl,--no-as-needed -pthread test_deque.cpp
+è¿è¡Œæµ‹è¯•è„šæœ¬
+`$ g++ -std=c++11  -Wl,--no-as-needed -pthread test_deque.cpp`
 $ ./a.out
 wait for thread started
 read thread started
