@@ -1,4 +1,8 @@
-// condition_variable::wait_for example
+/*
+*   Copyright (C) 2016, Íõ³¬ [wabcwang] , <wabcwang@gmail.com>.
+*   All Rights Reserved.
+*/
+
 #include <iostream>           // std::cout
 #include <thread>             // std::thread
 #include <chrono>             // std::chrono::seconds

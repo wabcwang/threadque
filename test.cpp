@@ -1,3 +1,7 @@
+/*
+*   Copyright (C) 2016, Íõ³¬ [wabcwang] , <wabcwang@gmail.com>.
+*   All Rights Reserved.
+*/
 #include <stdio.h>  
 #include <unistd.h>  
 #include <stdlib.h>  

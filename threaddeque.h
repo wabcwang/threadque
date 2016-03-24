@@ -1,4 +1,7 @@
-
+/*
+*   Copyright (C) 2016, Íõ³¬ [wabcwang] , <wabcwang@gmail.com>.
+*   All Rights Reserved.
+*/
 #include <queue>
 #include <cstdlib>
 #include <chrono>             // std::chrono::seconds
