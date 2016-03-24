@@ -5,7 +5,7 @@
 * test_que.cpp  单向队列的测试
 * test_deque.cpp 双向队列的测试
 
-运行测试脚本
+##运行测试脚本
 ```
 $ g++ -std=c++11  -Wl,--no-as-needed -pthread test_deque.cpp
 $ ./a.out
@@ -31,5 +31,4 @@ read--cmd:6
 read--cmd:7
 read--cmd:8
 read--cmd:9
-
 ```
