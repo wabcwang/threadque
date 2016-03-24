@@ -19,17 +19,13 @@ struct SendMsgStruct
 };
 
 ThreadDeque<SendMsgStruct*> m_vMsgQue;
-bool g_bisrun = true;
 bool g_bisok = false;
 
 void read_value() {
     
     g_bisok=true;
     std::cout<<"read thread started\r\n";
-    while( true == g_bisrun){
-        //std::cout<<"read thread waiting....\r\n";
-        m_vMsgQue.wait_for_second(2);
-        //std::cout<<"read thread reading....\r\n";
+    while( true == m_vMsgQue.wait_for_second(2)){
         
         SendMsgStruct *tmp = NULL;
         while(NULL != (tmp= m_vMsgQue.pop_front())){
@@ -42,6 +38,7 @@ void read_value() {
     }
     return;
 }
+
 
 int main ()
 {
@@ -59,14 +56,13 @@ int main ()
         SendMsgStruct *tmp=new SendMsgStruct;
         tmp->sCmd= i;
         tmp->sValue = j;
-        //usleep(j*100000);
+        usleep(j*100000);
         std::cout<<"write--cmd:"<<tmp->sCmd<<"\r\n";
         m_vMsgQue.push_back(tmp);
     }
     
     sleep(1);
-
-    g_bisrun=false;
+    m_vMsgQue.notify_exit();
     th.join();
 
     return 0;

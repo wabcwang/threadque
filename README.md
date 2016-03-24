@@ -7,7 +7,7 @@
 
 ##运行测试脚本
 ```
-$ g++ -std=c++11  -Wl,--no-as-needed -pthread test_deque.cpp
+$ g++ -std=c++11  -Wl,--no-as-needed -pthread test_deque.cpp -g
 $ ./a.out
 wait for thread started
 read thread started

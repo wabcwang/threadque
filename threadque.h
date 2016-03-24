@@ -20,11 +20,21 @@ private:
 
     condition_variable  m_repo_not_empty;   //通知队列不为空条件变量
     mutex               m_mtx_condition;    //条件变量的锁
+    bool                m_isRun;            //队列是否还在运行
         
-
+    /* 唤醒等待处理的线程 */
+    void notify()
+    {
+        unique_lock<std::mutex> lock_cond(m_mtx_condition);
+        m_repo_not_empty.notify_all(); 
+        lock_cond.unlock();
+        return;
+    }
+    
 public:
     ThreadQue()
     {
+        m_isRun = true;
     }
 
     ~ThreadQue()
@@ -54,10 +64,8 @@ public:
         m_queue.push(obj);
         lock_que.unlock();        
 
-        unique_lock<std::mutex> lock_cond(m_mtx_condition);
-        m_repo_not_empty.notify_one(); 
-        lock_cond.unlock();
-        //std::cout<<"push_back:"<<obj<<"\r\n";
+        notify();
+        
         return true;
     }
 
@@ -79,15 +87,24 @@ public:
             obj = m_queue.front();
             m_queue.pop();
         }
-        //std::cout<<"pop_front:"<<obj<<"\r\n";
+
         return obj;
     }
 
     /* 等待队列不为空，入参为等待的时间长度，单位为秒 */
-    void wait_for_second(int seconds)
+    bool wait_for_second(int seconds)
     {
         unique_lock<std::mutex> lock_cond(m_mtx_condition);
         m_repo_not_empty.wait_for(lock_cond,std::chrono::seconds(seconds));
+        return m_isRun;
+    }
+
+    /* 通知线程退出 */
+    void notify_exit()
+    {
+        unique_lock<std::mutex> lock_cond(m_mtx_condition);
+        m_isRun = false;
+        m_repo_not_empty.notify_all(); 
         return;
     }
 };
