@@ -55,7 +55,8 @@ public:
     Row* getRow(int index);
     Row* pop_back();
     Row* pop_front();
-
+    Row* find(const std::string &key, const std::string &value);
+    
     void addRow(Row* row)
     {
         m_row.push_back(row);

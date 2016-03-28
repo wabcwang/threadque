@@ -218,3 +218,22 @@ Row* Table::pop_front()
     return row; 
 }
 
+Row* Table::find(const std::string &key, const std::string &value)
+{
+    if(true == empty()){
+        return NULL;
+    }
+    
+    Row* row = NULL;
+    for (std::vector<Row*>::iterator it = m_row.begin() ; it != m_row.end(); ++it)
+    {
+        row = *it;
+        if(value == row->getValue(key))
+        {
+            break;
+        }
+        row = NULL;
+    }
+    return row; 
+}
+

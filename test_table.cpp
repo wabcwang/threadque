@@ -101,6 +101,12 @@ int main ()
         }
     }
 
+    row = table_test.find("a", "2");
+    if(NULL != row)
+    {
+        std::cout<<"find: "<<row->getValue("a")<<std::endl;
+    }
+
     /*Table test = table_test;
     for(int i=0;i <test.size();i++)
     {
