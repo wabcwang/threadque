@@ -12,23 +12,23 @@ $ ./a.out
 wait for thread started
 read thread started
 write--cmd:0
-write--cmd:1
-write--cmd:2
-write--cmd:3
-write--cmd:4
-write--cmd:5
-write--cmd:6
-write--cmd:7
-write--cmd:8
-write--cmd:9
-read--cmd:0
-read--cmd:1
-read--cmd:2
-read--cmd:3
-read--cmd:4
-read--cmd:5
-read--cmd:6
-read--cmd:7
-read--cmd:8
-read--cmd:9
+.....
+```
+
+#内存数据表映射
+
+* table.h
+* table.cpp
+* test_table.cpp
+
+##运行测试脚本
+```
+$ g++ table.cpp test_table.cpp -o table
+$ ./table
+a:0 b:0 c:0 d:0 e:5.1 
+int-e:5
+float-e:5.1
+double-e:5.1
+long-e:5
+......
 ```
